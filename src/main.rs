@@ -60,14 +60,16 @@ fn main() {
         }
     };
 
-    println!("\n{}", src);
+    // println!("\n{}", src);
 
     let lexer = front::lexer::Lexer::new(&src);
     let tokens: Vec<(front::token::Token, Position)> = lexer.lex();
 
+    /*
     for (token, _) in &tokens {
         println!("{:?}", token);
     }
+    */
 
     let mut parser =
         front::parser::Parser::new(config.src.clone().to_string_lossy().into_owned(), tokens);
